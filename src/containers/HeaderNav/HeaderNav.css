@@ -1,0 +1,6 @@
+.ui.menu.top-menu {
+  border: none;
+  .logo {
+    width: 17rem;
+  }
+}
