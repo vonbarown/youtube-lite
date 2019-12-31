@@ -4,10 +4,11 @@ import './VideoPreview.scss';
 
 export class VideoPreview extends React.Component {
     render() {
+        const horizontal = this.props.horizontal ? 'horizontal' : null;
         return (
-            <div className='video-preview'>
+            <div className={['video-preview', horizontal].join(' ')}>
                 <div className='image-container'>
-                    <Image sr='http://via.placeholder.com/210x118' />
+                    <Image src='http://via.placeholder.com/210x118' />
                     <div className='time-label'>
                         <span>09:22</span>
                     </div>
