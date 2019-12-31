@@ -7,7 +7,7 @@ import { SideBarFooter } from './SideBarFooter/SideBarFooter'
 import './SideBar.scss'
 
 
-class SideBar extends Component {
+export class SideBar extends Component {
     render() {
         return (
             <Menu borderless vertical stackable fixed='left' className='side-nav' >

@@ -16,9 +16,6 @@ export const SideBarFooter = () => {
                 <div>Test new features</div>
             </div>
             <div className='footer-block'>
-                <div>All prices include VAT</div>
-            </div>
-            <div className='footer-block'>
                 <div>A Youtube clone purely  for educational purposes under fair use.</div>
             </div>
         </>
