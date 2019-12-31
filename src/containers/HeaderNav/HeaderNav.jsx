@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Image, Menu, Form, Input, Icon } from 'semantic-ui-react'
 import logo from '../../assets/images/logo.jpg'
-import './HeaderNav.css'
+import './HeaderNav.scss'
 
 
 class HeaderNav extends Component {
