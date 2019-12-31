@@ -3,7 +3,7 @@ import { Icon, Menu } from 'semantic-ui-react'
 import './SideBarItem.scss'
 
 export const SideBarItem = (props) => {
-    const highlight = props.highlight ? 'hightlight-item' : null;
+    const highlight = props.highlight ? 'highlight-item' : null;
 
     return (
         <Menu.Item className={['sidebar-item', highlight].join('')}>
