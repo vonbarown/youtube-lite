@@ -21,25 +21,24 @@ class HeaderNav extends Component {
                                 />
                             </Form.Field>
                         </Form>
-
-                        <Menu.Menu position='right'>
-                            <Menu.Item>
-                                <Icon className='header-icon' name='video camera' size='large' />
-                            </Menu.Item>
-                            <Menu.Item>
-                                <Icon className='header-icon' name='grid layout' size='large' />
-                            </Menu.Item>
-                            <Menu.Item>
-                                <Icon className='header-icon' name='chat' size='large' />
-                            </Menu.Item>
-                            <Menu.Item>
-                                <Icon className='header-icon' name='alarm' size='large' />
-                            </Menu.Item>
-                            <Menu.Item name='avatar'>
-                                <Image src='http://via.placeholder.com/80x80' avatar />
-                            </Menu.Item>
-                        </Menu.Menu>
                     </Menu.Item>
+                    <Menu.Menu position='right'>
+                        <Menu.Item>
+                            <Icon className='header-icon' name='video camera' size='large' />
+                        </Menu.Item>
+                        <Menu.Item>
+                            <Icon className='header-icon' name='grid layout' size='large' />
+                        </Menu.Item>
+                        <Menu.Item>
+                            <Icon className='header-icon' name='chat' size='large' />
+                        </Menu.Item>
+                        <Menu.Item>
+                            <Icon className='header-icon' name='alarm' size='large' />
+                        </Menu.Item>
+                        <Menu.Item name='avatar'>
+                            <Image src='http://via.placeholder.com/80x80' avatar />
+                        </Menu.Item>
+                    </Menu.Menu>
                 </Menu.Menu>
 
             </Menu>
