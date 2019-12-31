@@ -21,6 +21,7 @@ class HeaderNav extends Component {
                                 />
                             </Form.Field>
                         </Form>
+
                         <Menu.Menu position='right'>
                             <Menu.Item>
                                 <Icon className='header-icon' name='video camera' size='large' />
