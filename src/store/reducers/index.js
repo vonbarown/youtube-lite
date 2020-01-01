@@ -1,8 +1,7 @@
-const youTubeReducer = (stat = {}, action){
+export default function (state = {}, action) {
     switch (action.type) {
         default:
             return state;
     }
 }
 
-export default youTubeReducer
