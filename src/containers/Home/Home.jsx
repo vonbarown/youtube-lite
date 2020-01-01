@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { SideBar } from '../SideBar/SideBar';
-import { HomeContent } from './HomeContent/HomeContent'
+import HomeContent from './HomeContent/HomeContent'
 import * as videoActions from "../../store/actions/video";
 import { bindActionCreators } from 'redux';
 import { getYoutubeLibraryLoaded } from '../../store/reducers/api';
