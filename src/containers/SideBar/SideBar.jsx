@@ -11,7 +11,7 @@ export class SideBar extends Component {
     render() {
         return (
             <Menu borderless vertical stackable fixed='left' className='side-nav' >
-                <SideBarItem highlight={true} label='Home' icon='home' />
+                <SideBarItem highlight={true} label='home' icon='home' />
                 <SideBarItem label='Trending' icon='fire' />
                 <SideBarItem label='Followers' icon='spy' />
                 <Divider />
