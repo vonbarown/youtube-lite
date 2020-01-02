@@ -20,9 +20,9 @@ class Home extends React.Component {
         return (
             <React.Fragment>
                 <SideBar />
-                <HomeContent />
-                bottomReachedCallback={this.bottomReachedCallback}
-                showLoader={this.shouldShowLoader()}/>
+                <HomeContent
+                    bottomReachedCallback={this.bottomReachedCallback}
+                    showLoader={this.shouldShowLoader()} />
             </React.Fragment>
         );
     }

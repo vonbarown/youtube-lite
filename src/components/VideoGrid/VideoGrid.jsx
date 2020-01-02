@@ -13,6 +13,8 @@ export const VideoGrid = (props) => {
         return (<VideoPreview
             video={video}
             key={video.id}
+            pathname='/watch'
+            search={`?=${video.id}`}
         />
         )
     })

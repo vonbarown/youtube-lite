@@ -9,6 +9,13 @@ import './Watch.scss'
 
 
 export class Watch extends React.Component {
+
+
+    getVideoId() {
+        const searchParams = new URLSearchParams(this.props.location.search);
+        return searchParams.get('v');
+    }
+
     render() {
         return (
             <div className='watch-grid'>
