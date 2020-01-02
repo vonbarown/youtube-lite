@@ -20,7 +20,6 @@ export function* fetchEntity(request, entity, ...args) {
 export const ignoreErrors = (fn, ...args) => {
     return () => {
         const ignoreErrorCallback = (response) => response;
-        return fn(...args).then(ignoreErrorCallback, ignoreErrorCallback)
-    }
-
+        return fn(...args).then(ignoreErrorCallback, ignoreErrorCallback);
+    };
 }
