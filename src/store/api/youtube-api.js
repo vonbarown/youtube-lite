@@ -59,7 +59,7 @@ const createResource = (properties) => {
     return resource;
 }
 
-export const buildMostPopularVideosRequest = (amount = 12, loadDescription = false, nextPageToken) => {
+export const buildMostPopularVideosRequest = (amount = 12, loadDescription = false, nextPageToken, videCategoryId = null) => {
     let fields = 'nextPageToken,prevPageToken,items(contentDetails/duration,id,snippet(channelId,channelTitle,localized/title,publishedAt,thumbnails/medium,title),statistics/viewCount),pageInfo(totalResults)';
     if (loadDescription) {
         fields += ',items/snippet/description';
@@ -73,6 +73,7 @@ export const buildMostPopularVideosRequest = (amount = 12, loadDescription = fal
             regionCode: 'US',
             pageToken: nextPageToken,
             fields,
+            videCategoryId,
         }, null);
 }
 
