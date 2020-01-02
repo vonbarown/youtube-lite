@@ -1,4 +1,4 @@
-import { call, fork, take } from 'redux-saga/effects';
+import { call, fork, take, takeEvery } from 'redux-saga/effects';
 import * as api from '../api/youtube-api';
 import * as videoActions from '../actions/video';
 import { REQUEST } from '../actions';
@@ -14,4 +14,10 @@ export function* watchMostPopularVideos() {
 export function* fetchMostPopularVideos(amount, loadDescription, nextPageToken) {
     const request = api.buildMostPopularVideosRequest.bind(null, amount, loadDescription, nextPageToken);
     yield fetchEntity(request, videoActions.mostPopular);
+}
+
+export const fetchVideoCategories = fetchEntity.bind(null, api.buildVideoCategoriesRequest, videoActions.categories);
+
+export function* watchVideoCategories() {
+    yield takeEvery(videoActions.VIDEO_CATEGORIES[REQUEST], fetchVideoCategories);
 }

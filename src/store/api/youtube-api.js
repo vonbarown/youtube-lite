@@ -75,3 +75,12 @@ export const buildMostPopularVideosRequest = (amount = 12, loadDescription = fal
             fields,
         }, null);
 }
+
+export const buildVideoCategoriesRequest = () => {
+    return buildApiRequest('GET',
+        '/youtube/v3/videoCategories',
+        {
+            'part': 'snippet',
+            'regionCode': 'US'
+        }, null);
+}
