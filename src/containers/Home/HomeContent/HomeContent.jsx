@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { VideoGrid } from '../../../components/VideoGrid/VideoGrid';
 import { getMostPopularVideos, getVideosByCategory } from '../../../store/reducers/video'
-// import { InfiniteScroll } from '../../../components/InfiniteScroll/InfiniteScroll'
+import { InfiniteScroll } from '../../../components/InfiniteScroll/InfiniteScroll'
 import './HomeContent.scss'
 
 const AMOUNT_TRENDING_VIDEOS = 12
@@ -15,6 +15,7 @@ export class HomeContent extends Component {
                 <div className="responsive-video-grid-container">
                     <VideoGrid title='Trending' videos={trendingVideos} />
                     {categoryGrids}
+                    <InfiniteScroll />
                 </div>
             </div>
         )

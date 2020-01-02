@@ -18,6 +18,7 @@
     "react-scripts": "3.3.0",
     "react-test-renderer": "^16.12.0",
     "react-waypoint": "git+https://github.com/brigade/react-waypoint.git",
+    "react-waypoint-with-progress": "^9.0.8",
     "redux": "^4.0.5",
     "redux-saga": "^1.1.3",
     "reselect": "^4.0.0",
