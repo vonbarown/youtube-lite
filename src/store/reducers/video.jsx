@@ -2,7 +2,7 @@ import { createSelector } from 'reselect'
 import { MOST_POPULAR, VIDEO_CATEGORIES, MOST_POPULAR_BY_CATEGORY } from '../actions/video';
 import { SUCCESS } from '../actions';
 import { WATCH_DETAILS } from '../actions/watch';
-import { VIDEO_LIST_RESPONSE } from '../api/youtube-response-types';
+import { VIDEO_LIST_RESPONSE, SEARCH_LIST_RESPONSE } from '../api/youtube-response-types';
 
 
 
@@ -109,12 +109,29 @@ const groupVideosByIdAndCategory = (response) => {
 const reduceWatchDetails = (responses, prevState) => {
     const videoDetailResponse = responses.find(r => r.result.kind === VIDEO_LIST_RESPONSE);
     const video = videoDetailResponse.result.items[0];
+    const relatedEntry = reduceRelatedVideosRequest(responses);
+
     return {
         ...prevState,
         byId: {
             ...prevState.byId,
             [video.id]: video
         },
+        related: {
+            ...prevState.related,
+            [video.id]: relatedEntry
+        }
+    };
+}
+const reduceRelatedVideosRequest = (responses) => {
+    const relatedVideosResponse = responses.find(r => r.result.kind === SEARCH_LIST_RESPONSE);
+    const { pageInfo, items, nextPageToken } = relatedVideosResponse.result;
+    const relatedVideoIds = items.map(video => video.id);
+
+    return {
+        totalResults: pageInfo.totalResults,
+        nextPageToken,
+        items: relatedVideoIds
     };
 }
 

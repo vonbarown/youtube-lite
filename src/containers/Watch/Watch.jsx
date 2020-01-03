@@ -31,7 +31,7 @@ export class Watch extends React.Component {
     }
 
 
-    etchWatchContent() {
+    fetchWatchContent() {
         const videoId = this.getVideoId();
         if (!videoId) {
             this.props.history.push('/');
@@ -48,8 +48,8 @@ export class Watch extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        getYoutubeLibraryLoaded: getYoutubeLibraryLoaded(state)
-    }
+        youtubeLibraryLoaded: getYoutubeLibraryLoaded(state),
+    };
 }
 
 const mapDispatchToProps = (dispatch) => {
