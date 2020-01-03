@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
 import Home from './containers/Home/Home'
 import { AppLayout } from './components/AppLayout/AppLayout'
 import Watch from './containers/Watch/Watch'
@@ -49,4 +49,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ youtubeLibraryLoaded }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default withRouter(connect(null, mapDispatchToProps)(App));

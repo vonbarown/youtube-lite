@@ -4,13 +4,18 @@ import { Rating } from '../Rating/Rating'
 import './VideoMetaData.scss'
 
 export const VideoMetaData = (props) => {
+    if (!props.video || !props.video.statistics) {
+        return <div />;
+    }
+    const viewCount = Number(props.video.statistics.viewCount).toLocaleString();
+
     return (<div className='video-metadata'>
-        <h3>Video title</h3>
+        <h3>{props.video.snippet.title}</h3>
         <div className='video-stats'>
-            <span>{props.viewCount}</span>
+            <span>{viewCount}</span>
             <div className='video-actions'>
-                <Rating likeCount={1000} disLikeCount={100} />
-                <Button basic icon labelPosition='left'>
+                <Rating likeCount={props.video.statistics.likeCount}
+                    dislikeCount={props.video.statistics.dislikeCount} />                <Button basic icon labelPosition='left'>
                     <Icon name='share' />
                     Share
                 </Button>

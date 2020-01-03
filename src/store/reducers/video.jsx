@@ -13,10 +13,10 @@ const initialState = {
 };
 export default function videos(state = initialState, action) {
     switch (action.type) {
-        case MOST_POPULAR[SUCCESS]:
-            return reduceFetchMostPopularVideos(action.response, state);
         case VIDEO_CATEGORIES[SUCCESS]:
             return reduceFetchVideoCategories(action.response, state);
+        case MOST_POPULAR[SUCCESS]:
+            return reduceFetchMostPopularVideos(action.response, state);
         case MOST_POPULAR_BY_CATEGORY[SUCCESS]:
             return reduceFetchMostPopularVideosByCategory(action.response, action.categories, state);
         case WATCH_DETAILS[SUCCESS]:
@@ -164,3 +164,7 @@ export const videosByCategoryLoaded = createSelector(
         return Object.keys(videosByCategory || {}).length;
     }
 );
+
+export const getVideoById = (state, videoId) => {
+    return state.videos.byId[videoId];
+};

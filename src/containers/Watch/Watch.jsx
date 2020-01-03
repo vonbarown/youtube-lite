@@ -2,17 +2,22 @@ import React from 'react'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { RelatedVideos } from '../../components/RelatedVideos/RelatedVideos'
-import { Video } from '../../components/Video/Video'
-import { VideoMetaData } from '../../components/VideoMetaData/VideoMetaData'
-import { VideoInfoBox } from '../../components/VideoInfoBox/VideoInfoBox'
-import { Comments } from '../../containers/Comments/Comments'
 import * as watchActions from '../../store/actions/watch';
 import { getYoutubeLibraryLoaded } from '../../store/reducers/api';
+import WatchContent from './WatchContent/WatchContent'
 import './Watch.scss'
 
 
 export class Watch extends React.Component {
+
+    render() {
+        const videoId = this.getVideoId();
+
+        return (
+            <div className='watch-grid'>
+                <WatchContent videoId={videoId} />
+            </div>)
+    }
 
     componentDidMount() {
         if (this.props.youtubeLibraryLoaded) {
@@ -26,7 +31,8 @@ export class Watch extends React.Component {
         }
     }
 
-    fetchWatchContent() {
+
+    etchWatchContent() {
         const videoId = this.getVideoId();
         if (!videoId) {
             this.props.history.push('/');
@@ -34,16 +40,11 @@ export class Watch extends React.Component {
         this.props.fetchWatchDetails(videoId, this.props.channelId);
     }
 
-    render() {
-        return (
-            <div className='watch-grid'>
-                <Video className='video' id='-7fuHEEmEjs' />
-                <VideoMetaData className='metaData' viewCount={1000} />
-                <VideoInfoBox className='video-info-box' />
-                <Comments className='comments' />
-                <RelatedVideos className='relatedVideos' />
-            </div>)
+    getVideoId() {
+        const searchParams = new URLSearchParams(this.props.location.search);
+        return searchParams.get('v');
     }
+
 }
 
 const mapStateToProps = (state) => {
@@ -54,7 +55,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     const fetchWatchDetails = watchActions.details.request;
-    return (bindActionCreators({ fetchWatchDetails }, dispatch))
+    return bindActionCreators({ fetchWatchDetails }, dispatch);
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Watch));

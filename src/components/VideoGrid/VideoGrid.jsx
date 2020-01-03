@@ -14,7 +14,7 @@ export const VideoGrid = (props) => {
             video={video}
             key={video.id}
             pathname='/watch'
-            search={`?=${video.id}`}
+            search={`?v=${video.id}`}
         />
         )
     })
