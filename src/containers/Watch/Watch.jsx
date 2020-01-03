@@ -14,9 +14,8 @@ export class Watch extends React.Component {
         const videoId = this.getVideoId();
 
         return (
-            <div className='watch-grid'>
-                <WatchContent videoId={videoId} />
-            </div>)
+            <WatchContent videoId={videoId} />
+        )
     }
 
     componentDidMount() {
